@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ionization</title>
+  </head>
+  <body>
+    <h3>電場から実効主量子数を計算</h3>
+    <form>
+      <label>電場F <input class="F" type="number" step="0.1" />[V/cm]</label>
+      <button class="submit1" type="button">計算</button>
+    </form>
+    <div>-> 実効主量子数　<span class="result1"></span></div>
+    <h3>実効主量子数から電場を計算</h3>
+    <form>
+      <label
+        >実効主量子数n* <input class="n" type="number" step="0.01"
+      /></label>
+      <button class="submit2" type="button">計算</button>
+    </form>
+    <div>-> 電場　<span class="result2"></span>[V/cm]</div>
+    <img src="img/ionize.png" alt="" width="800" />
+    <script>
+      const submit1 = document.querySelector(".submit1");
+      const submit2 = document.querySelector(".submit2");
+      const result1 = document.querySelector(".result1");
+      const result2 = document.querySelector(".result2");
+
+      const F0 = 5e9; //[V/cm]
+
+      submit1.addEventListener("click", () => {
+        const F = document.querySelector(".F").value;
+        const n = Math.pow(F0 / (16 * F), 1 / 4);
+        result1.textContent = n;
+      });
+      submit2.addEventListener("click", () => {
+        const n = document.querySelector(".n").value;
+        const F = F0 / 16 / Math.pow(n, 4);
+        result2.textContent = F;
+      });
+    </script>
+  </body>
+</html>
