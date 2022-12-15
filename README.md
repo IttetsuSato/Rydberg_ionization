@@ -1,0 +1,2 @@
+# Rydberg_ionization
+Rydberg原子をイオン化するのに必要な電場とイオン化可能な原子の状態の計算機です
